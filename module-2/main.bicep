@@ -62,7 +62,7 @@ var appServicePlanName = '${environmentType}-${solutionName}-plan'
 var appServiceName = '${environmentType}-${solutionName}-app'
 var sqlDatabaseName = 'Employees'
 var sqlServerName = '${environmentType}-${solutionName}-sql'
-var auditStorageAccountName = 'beartoy${uniqueString(resourceGroup().id)}'
+var auditStorageAccountName = take('beartoy${uniqueString(resourceGroup().id)}',24)
 var auditingEnabled = environmentType == 'prod'
 
 
@@ -119,13 +119,13 @@ resource auditStorageAccount 'Microsoft.Storage/storageAccounts@2025-08-01' = if
 }
 
 
-resource sqlServerAudit 'Microsoft.Sql/servers/auditingSettings@2025-02-01-preview' = {
+resource sqlServerAudit 'Microsoft.Sql/servers/auditingSettings@2025-02-01-preview' = if (auditingEnabled) {
   parent: sqlServer
   name: 'default'
   properties: {
     state: 'Enabled'
-    storageEndpoint: environmentType == 'Prod' ? auditStorageAccount.properties.primaryEndpoints.blob : ''
-    storageAccountAccessKey: environmentType == 'Prod' ? auditStorageAccount.listKeys().keys[0].value : ''
+    storageEndpoint: environmentType == 'prod' ? auditStorageAccount.properties.primaryEndpoints.blob : ''
+    storageAccountAccessKey: environmentType == 'prod' ? auditStorageAccount.listKeys().keys[0].value : ''
   }
 }
 

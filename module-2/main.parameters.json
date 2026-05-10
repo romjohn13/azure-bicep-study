@@ -35,7 +35,7 @@
         },
         "storageAccountProperties": {
             "value": {
-                "sku": "Standard_GRS",
+                "sku": "Standard_LRS",
                 "kind": "StorageV2",
                 "accesstier": "hot"
             }
