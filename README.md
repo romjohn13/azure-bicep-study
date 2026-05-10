@@ -1,0 +1,1 @@
+New-AzResourceGroupDeployment -Name main -TemplateFile main.bicep

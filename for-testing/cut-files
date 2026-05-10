@@ -1,0 +1,4 @@
+
+var storageAccountSKUname = (environmentType == 'prod') ? 'Standard_GRS' : 'Standard_LRS'
+var serviceAppPlanSKUname = (environmentType == 'prod') ? 'B1' : 'F1'
+param sku string = 'F1'
