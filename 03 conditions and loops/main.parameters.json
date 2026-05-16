@@ -1,0 +1,86 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vnetlist": {
+            "value": [
+                {
+                    "name": "toy",
+                    "addressSpaceRange": "10.0.0.0/16",
+                    "location": "southeastasia",
+                    "environmenttype": "prod",
+                    "subnet": [
+                        {
+                    "name": "VM",
+                    "ipAddressRange": "10.0.1.0/24"
+                        },
+                                        {
+                    "name": "VMSS",
+                    "ipAddressRange": "10.0.2.0/24"
+                        },
+                                        {
+                    "name": "Database",
+                    "ipAddressRange": "10.0.3.0/24"
+                        },
+                                        {
+                    "name": "AzureFirewallSubnet",
+                    "ipAddressRange": "10.0.4.0/24"
+                        }
+                        
+                    ]
+                },
+                {
+                    "name": "toy",
+                    "addressSpaceRange": "10.1.0.0/16",
+                    "location": "southeastasia",
+                    "environmenttype": "dev",
+                    "subnet": [
+                        {
+                    "name": "VM",
+                    "ipAddressRange": "10.1.1.0/24"
+                        },
+                                        {
+                    "name": "VMSS",
+                    "ipAddressRange": "10.1.2.0/24"
+                        },
+                                        {
+                    "name": "Database",
+                    "ipAddressRange": "10.1.3.0/24"
+                        },
+                                        {
+                    "name": "AzureFirewallSubnet",
+                    "ipAddressRange": "10.1.4.0/24"
+                        }
+                        
+                    ]
+                },
+                {
+                    "name": "toy",
+                    "addressSpaceRange": "10.2.0.0/16",
+                    "location": "southeastasia",
+                    "environmenttype": "sandbox",
+                    "subnet": [
+                        {
+                    "name": "VM",
+                    "ipAddressRange": "10.2.1.0/24"
+                        },
+                                        {
+                    "name": "VMSS",
+                    "ipAddressRange": "10.2.2.0/24"
+                        },
+                                        {
+                    "name": "Database",
+                    "ipAddressRange": "10.2.3.0/24"
+                        },
+                                        {
+                    "name": "AzureFirewallSubnet",
+                    "ipAddressRange": "10.2.4.0/24"
+                        }
+                        
+                    ]
+                }
+            ]
+        }
+    }
+}
+
