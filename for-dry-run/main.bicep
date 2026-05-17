@@ -26,6 +26,7 @@ param storageAccountDetails array = [
 ]
 param targetEnvironment string
 
+
 resource storageAccount 'Microsoft.Storage/storageAccounts@2025-08-01' = [ for storageAccount in storageAccountDetails: if (storageAccount.environmenttype == targetEnvironment) {
   name: '${storageAccount.environmenttype}${uniqueString(resourceGroup().id)}'
   location: storageAccount.location
